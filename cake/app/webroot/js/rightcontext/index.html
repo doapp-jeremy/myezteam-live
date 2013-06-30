@@ -1,0 +1,158 @@
+<html>
+<head>
+<link href="rightcontext.css" rel=STYLESHEET type="text/css">
+<script type="text/javascript" src="rightcontext.js"></script>
+<title>RightContext v0.2.4</title>
+<style type="text/css">
+    body {
+    font-family: verdana, arial, helvetica;
+    font-size:12px;
+    font-weight:normal;
+    }
+</style>
+</head>
+<body>
+<h1>RightContext demo page</h1>
+<h4>Harel Malka</h4>
+Current Version: 0.2.4<BR>
+<strong>You can now control how the menus are triggered: via LEFT, RIGHT mouse clicks, or mouse overs!</strong><BR>
+Send bug reports, ideas, modifications etc. to <em>rightcontext</em> at <em>googlemail</em> dot <em>com</em><BR>
+<a href="http://www.harelmalka.com">http://www.harelmalka.com</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="rightcontext.js">View Source</a>&nbsp;&nbsp;|&nbsp;&nbsp;        
+<a href="http://www.harelmalka.com/wp-content/uploads/2007/02/rightcontext.zip">Download</a>    
+<BR>
+<HR size=1>
+<strong>Trigger the menu with: </strong>
+<a href="?trigger=RIGHT">Right Mouse Button (default)</a> &nbsp; | &nbsp;
+<a href="?trigger=LEFT">Left Mouse Button</a> &nbsp; | &nbsp;
+<a href="?trigger=MOVE">Mouse Over</a> 
+<P>
+<table width=100% border=1 cellpadding=2 cellspacing=3>
+<tr><td align=left valign=top>
+
+<strong>Span tags with "action" menu</strong>
+<BR><BR><BR>
+<span context="actions" a="Harel Malka"  b="harel@harelmalka.com" c="07777777777">Harel Malka</span><BR>
+<span context="actions" a="Georgio Shrubbery"     b="georgioshrubb@whitehousen.gov" c="06666666666">Georgio Shrubbery</span><BR>
+<span context="actions" a="Homer Simpson" b="homer@simpsons.com" c="01239992021">Homer Simpson</span>
+
+</td>
+<td align=left valign=top>
+
+<strong>Anchor tags with 2 types of menus:</strong>
+<BR><BR><BR>
+<a href="#" id="link" context="one" attr1="freecrm.com" attr2="FreeCRM" attr3="Hiya World!" cond="Y">Anchor tag test. Right click me.</a>
+
+<BR><BR><BR>
+<div id="linkdiv" context="one" attr1="The first attribute" attr2="The sandwich attribute" attr3="The last standing attribute">This is rightly clickably DIV tag.</div>
+
+<BR><BR><BR>
+<a href="#" id="link" context="two" x="Harel+Malka" y="Harel Malka">A new link, a new menu</a>
+
+</td>
+<td align=left valign=top>
+<strong>Input field : </strong>
+<BR><BR><BR>    
+<input type="text" size="40" context="one" attr1="Red" attr2="Green" attr3="Blue" value="Click me with your right one!" id="input">
+</td>
+</tr>
+</table>
+<small>Written by Harel Malka </small>
+
+
+
+ 
+<script type="text/javascript">
+    /*  this bit of code just checks to see if the menu is to be triggered by left, right click or mouse over.
+        if is not part of the script, and is used for this demo purposes to demonstrate the script running with the 
+        different trigger options.
+     */
+    if (document.location.search.indexOf('trigger') > 0) {
+        params = document.location.search.replace('?', '').split('=');
+        RightContext.menuTriggerEvent = params[1].toUpperCase();
+    } 
+
+
+    // define a menu
+    menu1 = { attributes: "attr1,attr2,attr3,cond" ,
+
+              items: [
+                     {type:RightContext.TYPE_MENU,
+                      text:"Search for [attr2] on Google",
+                      url:"http://www.google.com?q=[attr1]" },
+
+                     {type:RightContext.TYPE_MENU,
+                      text:"The second item in the menu. Will only show if cond eq Y (it is [cond])",
+                      requires: ["cond", "Y"],
+                      onclick:function() {alert('This is a custom javascript')} },
+
+                     {type: RightContext.TYPE_SEPERATOR },
+
+                     {type: RightContext.TYPE_TEXT,
+                      text: "This is hardcoded, yet dynamic text: attr1=[attr1], attr2=[attr2], attr3=[attr3]"} ,
+
+                     {type: RightContext.TYPE_TEXT_EXT,
+                      url: "external.html"}   ]
+             };
+
+
+    // and another menu
+    menu2 = { attributes: "x,y" ,
+
+              items: [
+                     {type: RightContext.TYPE_TEXT,
+                      text: "This is a new menu; menu2! Wow!"} ,
+
+                     {type:RightContext.TYPE_MENU,
+                      text:"Search for [y] on Yahoo (in new window)",
+                      url:"http://search.yahoo.com/search?p=[x]",
+                      frame:"_blank"},
+
+                     {type:RightContext.TYPE_MENU,
+                      text:"Search for [y] on Yahoo (in the frame below)",
+                      url:"http://search.yahoo.com/search?p=[x]",
+                      frame:"innerFrame"},
+
+                     {type: RightContext.TYPE_SEPERATOR },
+
+
+                     {type: RightContext.TYPE_TEXT_EXT,
+                      url: "external.html"}   ]
+             };
+
+    // and yet another menu
+    menu3 = { attributes: "a,b,c",
+    	
+    	      items:  [
+   	                   {type:RightContext.TYPE_MENU,
+                       text:"Edit [a]",
+                       onclick:function() {alert('Edit selected [a] ')},
+                       image: "icon.gif", align:"right" },
+                       {type:RightContext.TYPE_MENU,
+                       text:"View [a]",
+                       onclick:function() {alert('View selected [b]')} },
+    	               {type:RightContext.TYPE_MENU,
+                       text:"Delete [a]",
+                       onclick:function() {alert('Delete selected')} },   
+                       {type: RightContext.TYPE_SEPERATOR },
+                       {type:RightContext.TYPE_MENU,
+                       text:"Email [a] &lt;[b]&gt;",
+                       onclick:function() {alert('Email selected')} },
+                       {type:RightContext.TYPE_MENU,
+                       text:"Call [a] ([c])",
+                       onclick:function() {alert('Call selected')} }
+    	              ]
+    };
+
+// add menu1 as 'one' to the menu collection
+RightContext.addMenu("one", menu1);
+// add menu2 as 'two' to the menu collection
+RightContext.addMenu("two", menu2);
+// add menu3 as 'actions' to the menu collection
+RightContext.addMenu("actions", menu3);
+// initialize RightContext
+RightContext.initialize();
+
+</script>
+</body>
+</html>

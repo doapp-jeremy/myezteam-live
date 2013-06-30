@@ -1,0 +1,107 @@
+ <?php // player_form element
+// $title -> title of form
+// $submitLabel -> The label of the submit button
+?>
+<h4><?php echo $title; ?></h4>
+<?php echo $ajax->form($params = array('action' =>'validator'), $type = 'post', $options = array('model' => 'Player', 'url' => 'validator', 'update' => 'updater')); ?>
+<?php if (false): ?>
+  <div id="updater"></div>
+  <div id="formDiv" class="clearfix">
+    <div id="formInput" class="clearfix">
+      <span class="formLabel">
+        <?php echo $form->label('Player/type', 'Player Type:'); ?>
+      </span>
+      <span class="formText">
+        <?php
+          $options = array(
+            'regular' => 'Regular: This player should be at every game.', 
+            'sub' => 'Sub: Plays if not enough regulars can make it.', 
+            'member' => 'Member: Someone you want to be kept in the loop.'
+          );
+          
+          echo $form->input('Player.type', array(
+            'div' => false,
+            'label' => false,
+            'type' => 'radio',
+            'legend' => false,
+            'separator' => '<br>',
+            'options' => $options
+            )
+          );
+        ?>
+      </span>
+    </div>
+    <?php
+    echo $form->hidden('Player/team_id');
+    echo $form->hidden('Contact/email');
+    if (isset($this->data['Player']['id']))
+    {
+      echo $form->hidden('Player/id');
+    }
+    ?>
+    <div class="buttons">
+    <?php echo $form->submit($submitLabel); ?>
+      <div class="cancelLink">
+        <?php echo $html->link('Cancel', $cancelLink); ?>
+      </div>
+    </div>
+  </div>
+  <?php endif; ?>
+  <fieldset class="<?php echo $m; ?>Fieldset">
+    <legend>
+    <?php 
+    echo $legend;
+    ?>
+    </legend>
+  <?php
+    echo $form->input('isAjax', array('type' => 'hidden', 'value' => $ajax->isAjax()));
+    if (($action == 'edit') || isset($this->data[$model]['id']))
+    {
+      echo $form->input('id');
+    }
+    //if (isset(${$association['name']}) && !empty(${$association['name']}))
+    if (isset($associations))
+    {
+      foreach ($associations as $assoc)
+      {
+        $field = $assoc['field'] . '_id';
+        $label = Inflector::humanize($field);
+        if (isset($assoc['label']))
+        {
+          $label = $assoc['label'];
+        }
+        echo $form->input($field, array('label' => $label));
+      }
+    }
+    else if (isset($association))
+    {
+      if (isset($association['label']))
+      {
+        $label = $association['label']; 
+      }
+      else
+      {
+        $label = Inflector::humanize($association['name']);
+      }
+      echo $form->input(Inflector::singularize($association['name']) . '_id', array('label' => $label));
+    }
+    
+    if (isset($formFields))
+    {
+      echo $formFields;
+    }
+    else if (isset($formFieldElement))
+    {
+      echo $this->element($formFieldElement);
+    }
+    else
+    {
+      echo $this->element($m . '/' . $m . 'FormFields');
+    }
+  ?>
+  </fieldset>
+  <?php
+//    echo $form->submit($submit, array('id' => 'submitButton', 'onclick' => 'this.disabled = true;'));
+//    echo $form->end();
+  ?>
+<?php echo $form->end(); ?>

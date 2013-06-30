@@ -1,0 +1,383 @@
+@CHARSET "ISO-8859-1";
+
+#content{
+  clear: both;
+  padding: 10px 5px 40px 5px;
+  overflow: auto;
+}
+
+#content a { text-decoration: none; }
+
+.view { margin-top: 5px; }
+.fright { float: right; }
+
+.mar15 { margin-left: 15px; }
+.mar5Top { margin-top: 5px; }
+.mar10Top { margin-top: 10px; }
+.mar20Top { margin-top: 20px; }
+
+.index { width: 980px;}
+/*
+#teamList { float: left; width: 300px; }
+#teamMain { float: left; width: 670px; margin-left: 5px;}
+
+#eventList { float: left; width: 300px; }
+#eventMain { float: left; width: 670px; margin-left: 5px;}
+*/
+
+.leftSideBar { float: left; width: 300px; }
+
+.modelDrops { float: left; width: 300px; }
+.modelMain { float: left; width: 670px; margin-left: 5px;}
+
+/*.actions { padding-bottom: 10px;}*/
+.actions a {color: #364E6D; }
+.actions a:hover {font-weight: bold; }
+.actions ul {display: inline; margin: 0;}
+.actions ul li {display: inline; list-style: none; margin: 0 8px 0 10px;}
+
+.currentAction { font-size: 125%; font-weight: bold; }
+
+.hidden { display: none; }
+
+.value { margin-left: 20px; color: #000066; overflow: auto; }
+
+.dropDownData a { color: #0033FF; font-size: 110%; }
+
+.upcomingPastEvents { }
+
+/* .title { font-size: 175%; } */
+.title { font-size: 24px; }
+
+.titleActions { margin-left: 5px; }
+.titleActions a { color: black; }
+
+.refresh { }
+
+.data { margin: 10px 0 0 10px; }
+
+.flashGood {
+    margin: 0px 0px 0px 20px;
+    padding: 0px 5px 0px 5px;
+    font-size: 90%;
+    color: #339933;
+    background-color: #CCFFCC;
+    border: 1px solid #009933;
+}
+
+.flashBad {
+    margin: 0px 0px 0px 20px;
+    padding: 0px 5px 0px 5px;
+    font-size: 90%;
+    color: #990000;
+    background-color: #CC9999;
+    border: 1px solid #CC0000;
+}
+
+.errorChild {
+/*  list-style-type: none; */
+  margin: 2px 2px 2px 20px;
+}
+
+.errors { color: red; }
+
+/* ajax form validation errors */
+div#updater div.error {
+  background-color: #FFE4E1;
+  color: #FF0000;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid #800000;
+}
+
+/** Start Cake generic stuff **/
+/* Forms */
+form {
+  clear: both;
+  margin-right: 20px;
+  padding: 0;
+  width: 90%;
+}
+fieldset {
+  border: 1px solid #ccc;
+  margin-top: 30px;
+  padding: 16px 20px;
+}
+fieldset legend {
+  color: #e32;
+  font-size: 160%;
+  font-weight: bold;
+}
+fieldset fieldset {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding: 16px 0;
+}
+fieldset fieldset legend {
+  font-size: 120%;
+  font-weight: normal;
+  margin-left: 20px;
+}
+
+fieldset fieldset div {
+  clear: left;
+  margin: 0 10px;
+}
+form div {
+  clear: both;
+  margin-bottom: 1em;
+  padding: .5em;
+  vertical-align: text-top;
+}
+form div.input {
+  color: #444;
+}
+form div.required {
+  color: #333;
+  font-weight: bold;
+}
+form div.submit {
+  border: 0;
+  clear: both;
+  margin-top: 10px;
+  margin-left: 140px;
+}
+label {
+  display: block;
+  font-size: 110%;
+  padding-right: 20px;
+}
+input, textarea {
+  clear: both;
+  display: block;
+  font-size: 140%;
+  font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+  padding: 2px;
+  width: 100%;
+}
+select {
+  clear: both;
+  font-size: 120%;
+  vertical-align: text-bottom;
+}
+select[multiple=multiple] {
+  width: 100%;
+}
+option {
+  font-size: 120%;
+  padding: 0 3px;
+}
+input[type=checkbox] {
+  clear: left;
+  float: left;
+  margin: 0px 6px 7px 2px;
+  width: auto;
+}
+input[type=submit] {
+  display: inline;
+  font-size: 110%;
+  padding: 2px 5px;
+  width: auto;
+  vertical-align: bottom;
+}
+input[type=hidden] { display: none; }
+
+/* Notices and Errors */
+div.message {
+  clear: both;
+  color: #900;
+  font-size: 140%;
+  font-weight: bold;
+  margin: 1em 0;
+}
+div.error-message {
+  clear: both;
+  color: #900;
+  font-weight: bold;
+}
+p.error {
+  background-color: #e32;
+  color: #fff;
+  font-family: Courier, monospace;
+  font-size: 120%;
+  line-height: 140%;
+  padding: 0.8em;
+  margin: 1em 0;
+}
+p.error em {
+  color: #000;
+  font-weight: normal;
+  line-height: 140%;
+}
+.notice {
+  background-color: #ffcc00;
+  color: #000;
+  display: block;
+  font-family: Courier, monospace;
+  font-size: 120%;
+  line-height: 140%;
+  padding: 0.8em;
+  margin: 1em 0;
+}
+.success {
+  background-color: green;
+  color: #FFF;
+}
+
+/* Paging */
+div.paging { color: #ccc; margin: 2px 0 0 0; }
+div.paging div.disabled { color: #ddd; display: inline; }
+div.paging span {}
+div.paging span.current { color: #000; }
+div.paging span a {}
+
+/** END Cake generic stuff **/
+
+.teamActions { background: #EEFFEE; border-top: 1px solid #99FFCC; padding: 8px 10px; }
+.teamActions a { color: #336666; }
+.teamTitleText a { color: #006600; }
+
+.eventActions { background: #FFCCCC; border-top: 1px solid #FF6699; padding: 8px 10px; }
+.eventActions a { color: #660033; }
+.eventTitleText a { color: #CC0066; }
+
+.emailActions { background: #FFFFCC; border-top: 1px solid #FFCC99; padding: 8px 10px; }
+.emailActions a { color: #FF6600; }
+.emailTitleText a { color: #FF9900; }
+
+.teams form { margin-left: 20px; }
+
+.teams fieldset legend {
+  color: #006633;
+  font-size: 160%;
+  font-weight: bold;
+}
+
+.events form { margin-left: 20px; }
+
+.events fieldset { background-color: #FFCCCC; }
+.events fieldset legend {
+  color: #FF0033;
+  font-size: 160%;
+  font-weight: bold;
+}
+
+.emails form { margin-left: 20px; }
+
+.emails fieldset { background-color: #FFFFCC; }
+.emails fieldset legend {
+  color: #FF9900;
+  font-size: 160%;
+  font-weight: bold;
+}
+
+.topics form { margin-left: 20px; }
+
+.topics fieldset { background-color: #99CCFF; }
+.topics fieldset legend {
+  color: #330099;
+  font-size: 160%;
+  font-weight: bold;
+}
+
+.playerList { margin: 10px 0 0 10px; }
+#content table { width: 95%; text-align: center; }
+.playerList tr { border-bottom: 1px solid #000000; }
+.playerList thead { margin-bottom: 10px; }
+.playerList th { margin-left: 20px; }
+
+.even_row { color: #000000; }
+.odd_row { color: #3333CC; }
+
+.playerType_regular { color: #3333FF; }
+.playerType_sub { color: #996600; }
+.playerType_member { color: #FF3399; }
+
+.playerType_regular a { color: #3333FF; }
+.playerType_sub a { color: #996600; }
+.playerType_member a { color: #FF3399; }
+
+.response_yes { color: #339900; }
+.response_probable { color: #99CC00; }
+.response_maybe { color: #FFCC00; }
+.response_no { color: #CC0000; }
+.response_no_response { color: #000000; }
+
+.response_yes a { color: #339900; }
+.response_probable a { color: #99CC00; }
+.response_maybe a { color: #FFCC00; }
+.response_no a { color: #CC0000; }
+.response_no_response a { color: #000000; }
+
+.sort a { color: #660033; }
+
+.edit a { color: #000000; }
+
+.topic { padding: 2px; }
+
+.oddTopicTitle { color: #666699; }
+.evenTopicTitle { color: #0000CC; }
+
+.topicDate { color: #000000; }
+
+.topicPosts { border-left: 1pt solid #000000; border-right: 1pt solid #000000; border-bottom: 1pt solid #000000; }
+
+.postList { border-top: 1pt solid #000000; }
+
+.post { border-bottom: 1pt solid #000000; }
+
+.oddPost { background-color: #FFFFFF; padding: 2px; }
+.evenPost { background-color: #CCCCFF; padding: 2px; }
+.postName { color: #330066; }
+.postDate { color: #3300FF; }
+
+#googleAd { float: left; }
+
+h2 a { color: #003300; }
+
+.login fieldset { background-color: #F6F8FA; border: 1px solid #E0E5F0; }
+.login fieldset legend { color: #667788;}
+#loginForm form { margin-right: 0px; width: 100%; }
+#loginForm input, textarea { font-size: 110%; }
+.login div.submit { margin-left: 0px; margin-top: 2px; display: inline; }
+#loginForm #updater { width: 305px; }
+#loginPage #updater { width: 700px; }
+
+.login h2 a { color: #0000CC; }
+
+.quickLinks a { font-size: 16px; }
+.quickLinks ul { margin-left: 30px; }
+.quickLinks li { margin-top: 10px; }
+
+.features li { margin-top: 10px; }
+
+fieldset fieldset { font-size: 85%; }
+.remove a { color: #FF3333; }
+
+.emailTo { padding: 5px; }
+.emailField { display: inline; }
+.emailData { background-color: #FFFFFF; padding: 5px; border: 1px solid; text-align: left; }
+
+.postMessageTitle { color: #003366; }
+.topicMessageTitle { color: #66FF00; }
+.topicMessageTitle a { color: #66FF00; }
+.teamMessageTitle a { color: #006633; }
+.eventMessageTitle { color: #FF0033; }
+.eventMessageTitle a { color: #990000; }
+.userMessageTitle { color: #996600; }
+
+.date { color: #9999CC; }
+#loader { background-color: #FF9999; border: 1pt solid #990000; color: #CC0000; padding: 2px 2px 2px 2px; }
+
+#modelDrops { background-color: #CCCFFF; margin-bottom: 2px; }
+#modelDrops h2 { padding-left: 5px; font-size: 24px; }
+#modelDrops h2 span { margin-left: 120px; }
+#modelDrops h2 a { color: #FFFFFF; }
+#modelDrops h2 a:hover { text-decoration: underline; }
+.dropActions { margin-bottom: 2px; padding-bottom: 2px; }
+.dropDownHolder { background-color: #FFFFFF; margin: 0px 2px 2px 2px; width: 98%; }
+.dropDown { padding: 2px 0px 2px 2px; }
+#googleAd { margin-top: 5px; }
+
+/* .modelDiv { border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid; padding-right: 5px; } */

@@ -1,0 +1,4 @@
+<?php // views/elements/spottt.ctp
+
+?>
+<style type="text/css"> table.spottt_tb, table.spottt_tb tr, table.spottt_tb td, table.spottt_tb a, table.spottt_tb tr a img { margin:0; padding:0; border:none; background:none; position:static; text-decoration:none; display:block; width:125px; vertical-align:top;} .spottt_thumb, .spottt_thumb img, .spottt_thumb a, .spottt_thumb td { height:125px; } .spottt_label, .spottt_label img, .spottt_label a, .spottt_label td { height:21px;}</style><table cellspacing="0px" class="spottt_tb" id="sp_code_table_do3myqj97sow4kkw"><tr class="spottt_thumb"><td><a href="http://click.spottt.com/sp_click_do3myqj97sow4kkw.php" target="_top"><img src="http://view.spottt.com/sp_image_do3myqj97sow4kkw.jpg" border="0" alt="Spottt" /></a></td></tr><tr class="spottt_label"><td><a href="http://home.spottt.com/sp_index_do3myqj97sow4kkw.php" ><img src="http://view.spottt.com/sp_label_do3myqj97sow4kkw.jpg" border="0" alt="Spottt" /></a></td></tr></table>
