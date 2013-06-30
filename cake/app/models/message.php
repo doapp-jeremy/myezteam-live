@@ -52,6 +52,8 @@ class Message extends AppModel {
 	
 	function newResponse($response)
 	{
+		// don't do anything, trying to increase performance
+		return;
 	  if (isset($response['Event']))
 	  {
 	    $event = $response;
@@ -79,7 +81,9 @@ class Message extends AppModel {
 	
 	function newPost($post)
   {
-    if (isset($post['Topic']))
+		// don't do anything, trying to increase performance
+		return;
+  	if (isset($post['Topic']))
     {
       $topic = $post;
     }
@@ -106,7 +110,9 @@ class Message extends AppModel {
 	
   function newTopic($topic)
   {
-    $title = 'New Topic: ';
+		// don't do anything, trying to increase performance
+		return;
+  	$title = 'New Topic: ';
     $message = array('Message' => array('title' => $title, 'topic_id' => $topic['Topic']['id']));
     if (!empty($topic['Topic']['team_id']))
     {
@@ -120,7 +126,9 @@ class Message extends AppModel {
   
   function newEvent($event)
   {
-    $title = 'New Event: ';
+		// don't do anything, trying to increase performance
+		return;
+  	$title = 'New Event: ';
     $this->createEventMessage($event, $title);
   }
   
@@ -143,7 +151,9 @@ class Message extends AppModel {
   
   function deletedEvent($event)
   {
-    //$this->markMessagesAsDeleted($this->findAllByEventId($event['Event']['id']));
+		// don't do anything, trying to increase performance
+		return;
+  	//$this->markMessagesAsDeleted($this->findAllByEventId($event['Event']['id']));
     $this->deleteAll(array('Message.event_id' => $event['Event']['id']));
 
     $title = 'Cancelled Event: ' . $event['Event']['name'];
@@ -167,7 +177,9 @@ class Message extends AppModel {
 
   function createEventMessage($event, $title)
   {
-    $message = array('Message' => array('title' => $title, 'event_id' => $event['Event']['id']));
+		// don't do anything, trying to increase performance
+		return;
+  	$message = array('Message' => array('title' => $title, 'event_id' => $event['Event']['id']));
 //    $team = array();
 //    if (isset($event['Team']))
 //    {
