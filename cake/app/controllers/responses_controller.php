@@ -20,6 +20,7 @@ class ResponsesController extends AppController {
 	  $this->data['Response'] = compact('event_id', 'player_id', 'response_type_id');
 	  $this->rsvp();
 	  $this->render('rsvp');
+	  $this->redirect('http://www.myezteam.com');
 	}
 	
 	function rsvp()
