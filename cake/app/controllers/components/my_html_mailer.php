@@ -81,10 +81,10 @@ class MyHtmlMailerComponent extends Object
       $event['Event']['Team'] = $event['Team'];
     }
     $output = '<span style="color: #006633;">';
-    $output .= $this->link($event['Event']['Team']['name'], '/teams/view/' . $event['Event']['team_id'], null, 'style="color: #006633;"');
+    $output .= $this->link($event['Event']['Team']['name'], '/main.html#/teams/' . $event['Event']['team_id'], null, 'style="color: #006633;"');
     $output .= ':</span>';
     $output .= '<span style="margin-left: 5px;">A new event has been added: ';
-    $output .= $this->link($event['Event']['name'], '/events/view/' . $event['Event']['id'], null, 'style="color: #990000;"');
+    $output .= $this->link($event['Event']['name'], '/main.html#/teams/' . $event['Event']['team_id'], null, 'style="color: #990000;"');
     $output .= '</span>';
     $output .= '<span style="margin-left: 10px; font-size: 75%; color: #333333;">' . $this->time->startEnd($event['Event']['start'], $event['Event']['end']) . '</span>';
     return $output;
@@ -118,12 +118,12 @@ class MyHtmlMailerComponent extends Object
     $output .= ' to ';
     $output .= '<span class="eventMessageTitle">';
     $event = $response['Response']['Event'];
-    $output .= $this->link($event['name'], '/events/view/' . $event['id'], null, 'style="color: #990000;"');
+    $output .= $this->link($event['name'], '/main.html#/teams/' . $event['team_id'], null, 'style="color: #990000;"');
     $output .= '</span>';
     $output .= ' for ';
     $output .= '<span class="teamMessageTitle">';
     $team = $response['Response']['Event']['Team'];
-    $output .= $this->link($team['name'], 'teams/view/' . $team['id'], null, 'style="color: #006633;"');
+    $output .= $this->link($team['name'], '/main.html#/teams/' . $team['id'], null, 'style="color: #006633;"');
     $output .= '</span>';
     $output .= '<span style="margin-left: 10px; font-size: 75%; color: #333333;">' . $this->time->niceShort($response['Response']['created']) . '</span>';
     if (isset($response['Response']['comment']) && (strlen($response['Response']['comment']) > 0))
@@ -295,7 +295,7 @@ class MyHtmlMailerComponent extends Object
       {
         $typeId = $keys[$i++];
         $name = $response_type;
-        $link = '/responses/email_rsvp/' . $event['Event']['id'] . '/' . $player['Player']['id'] . '/' . $typeId . '/' . $player['Player']['response_key'];
+        $link = '/main.html#/responses/email_rsvp/' . $event['Event']['id'] . '/' . $player['Player']['id'] . '/' . $typeId . '/' . $player['Player']['response_key'];
         $changeRsvp .= $this->link(Inflector::humanize($name), $link, $name);
         $changeRsvp .= '<br>';
       }
@@ -303,8 +303,8 @@ class MyHtmlMailerComponent extends Object
     }
     else if (!isset($event['Email']) && $player['Player']['id'] && (($player['PlayerType']['name'] == 'regular') || $response['Response']['id']))
     {
-      array_push($fields, 'change_RSVP');
-      $event['Event']['change_RSVP'] = $this->link('Change RSVP', '/responses/add/' . $event['Event']['id']);
+      //array_push($fields, 'change_RSVP');
+      //$event['Event']['change_RSVP'] = $this->link('Change RSVP', '/responses/add/' . $event['Event']['id']);
     }
 
     if ($player['Player']['id'] && ($player['PlayerType']['name'] != 'member'))

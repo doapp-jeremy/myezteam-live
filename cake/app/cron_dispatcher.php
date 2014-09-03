@@ -88,7 +88,7 @@
 		trigger_error("Can't find CakePHP core.  Check the value of CAKE_CORE_INCLUDE_PATH in app/webroot/index.php.  It should point to the directory containing your " . DS . "cake core directory and your " . DS . "vendors root directory.", E_USER_ERROR);
 	}
 	
-	define('FULL_BASE_URL', 'http://old.myezteam.com/');
+	define('FULL_BASE_URL', 'http://myezteam.com/');
 	Configure::write('debug', 2);
 	
 	// Dispatch the controller action given to it
