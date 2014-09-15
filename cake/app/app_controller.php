@@ -275,7 +275,7 @@ class AppController extends Controller
   }
   
   //var $hostname = 'www.myeasyteam.com';
- var $hostname = 'old.myezteam.com';
+ var $hostname = 'myezteam.com';
 // var $hostname = 'localhost';
   
   
