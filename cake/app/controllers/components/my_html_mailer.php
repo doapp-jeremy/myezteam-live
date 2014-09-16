@@ -295,7 +295,7 @@ class MyHtmlMailerComponent extends Object
       {
         $typeId = $keys[$i++];
         $name = $response_type;
-        $link = '/main.html#/responses/email_rsvp/' . $event['Event']['id'] . '/' . $player['Player']['id'] . '/' . $typeId . '/' . $player['Player']['response_key'];
+        $link = '/index.html#/responses/email_rsvp/' . $event['Event']['id'] . '/' . $player['Player']['id'] . '/' . $typeId . '/' . $player['Player']['response_key'];
         $changeRsvp .= $this->link(Inflector::humanize($name), $link, $name);
         $changeRsvp .= '<br>';
       }
@@ -427,57 +427,57 @@ class MyHtmlMailerComponent extends Object
     {
       $typeId = $keys[$i++];
       $name = $response_type;
-      $link = '/responses/email_rsvp/' . $email['Event']['id'] . '/' . $player['Player']['id'] . '/' . $typeId . '/' . $player['Player']['response_key'];
+      $link = '/index.html#/responses/email_rsvp/' . $email['Event']['id'] . '/' . $player['Player']['id'] . '/' . $typeId . '/' . $player['Player']['response_key'];
       $output .= '<span style="margin-left: 20px">';
       $output .= $this->link(Inflector::humanize($name), $link, $name);
       $output .= '</span>';
     }
     $output .= '    </div>';
     $output .= '  </fieldset>';
-    if (!$isIBMEmail || !$onlyIBMEmail)
-    {
-      $output .= '<h2>Or</h2>';
-      $output .= '<fieldset style="margin-top: 0px; margin-bottom: 20px; padding: 16px 0;">';
-      $output .= '  <legend style="color: #FF9900; font-size: 120%; font-weight: normal; margin-left: 20px;">Select your RSVP</legend>';
-      if ($isIBMEmail && !$onlyIBMEmail)
-      {
-        $output .= '<div style="clear: left; margin: 0 10px;">';
-        $output .= 'We have detected that 1 of your email address is an IBM account.  Please use the links above if your are responding from that email address because Lotus Notes doesn\'t like the form in the email.';
-        $output .= '</div>';
-        $output .= '<br>';
-      }
-      $output .= '  <div style="margin-left: 30px">';
-      $output .= '    <form action="http://' . $this->hostname . '/responses/rsvp" method="post">';
-      $output .= '      <input type="hidden" value="POST" name="_method" />';
-      $output .= '      <input id="ResponseEventId" type="hidden" value="' . $email['Event']['id'] . '" name="data[Response][event_id]" />';
-      $output .= '      <input id="ResponsePlayerId" type="hidden" value="' . $player['Player']['id'] . '" name="data[Response][player_id]" />';
-      $output .= '     <div style="font-weight: bold;">';
-      $output .= '       <label for="ResponseRSVP">RSVP</label>';
-      $output .= '     </div>';
-      $output .= '     <div style="margin-left: 20px">';
-      $output .= '        <select id="ResponseResponseTypeId" name="data[Response][response_type_id]">';
-      $i = 0;
-      foreach ($response_types as $response_type)
-      {
-        $typeId = $keys[$i++];
-        $name = $response_type;
-        $output .= '<option value="' . $typeId . '">' . $name . '</option>';
-      }
-      $output .= '        </select>';
-      $output .= '     </div>';
-      $output .= '     <div style="font-weight: bold;">Comment</div>';
-      $output .= '       <div style="margin-left: 20px;">';
-      $output .= '         <div class="input">';
-      $output .= '           <textarea id="ResponseComment" rows="3" cols="50" name="data[Response][comment]"></textarea>';
-      $output .= '         </div>';
-      $output .= '        </div>';
-      $output .= '      <div class="submit">';
-      $output .= '        <input type="submit" value="RSVP" />';
-      $output .= '      </div>';
-      $output .= '   </form>';
-      $output .= '  </div>';
-      $output .= '</fieldset>';
-    }
+//     if (!$isIBMEmail || !$onlyIBMEmail)
+//     {
+//       $output .= '<h2>Or</h2>';
+//       $output .= '<fieldset style="margin-top: 0px; margin-bottom: 20px; padding: 16px 0;">';
+//       $output .= '  <legend style="color: #FF9900; font-size: 120%; font-weight: normal; margin-left: 20px;">Select your RSVP</legend>';
+//       if ($isIBMEmail && !$onlyIBMEmail)
+//       {
+//         $output .= '<div style="clear: left; margin: 0 10px;">';
+//         $output .= 'We have detected that 1 of your email address is an IBM account.  Please use the links above if your are responding from that email address because Lotus Notes doesn\'t like the form in the email.';
+//         $output .= '</div>';
+//         $output .= '<br>';
+//       }
+//       $output .= '  <div style="margin-left: 30px">';
+//       $output .= '    <form action="http://' . $this->hostname . '/responses/rsvp" method="post">';
+//       $output .= '      <input type="hidden" value="POST" name="_method" />';
+//       $output .= '      <input id="ResponseEventId" type="hidden" value="' . $email['Event']['id'] . '" name="data[Response][event_id]" />';
+//       $output .= '      <input id="ResponsePlayerId" type="hidden" value="' . $player['Player']['id'] . '" name="data[Response][player_id]" />';
+//       $output .= '     <div style="font-weight: bold;">';
+//       $output .= '       <label for="ResponseRSVP">RSVP</label>';
+//       $output .= '     </div>';
+//       $output .= '     <div style="margin-left: 20px">';
+//       $output .= '        <select id="ResponseResponseTypeId" name="data[Response][response_type_id]">';
+//       $i = 0;
+//       foreach ($response_types as $response_type)
+//       {
+//         $typeId = $keys[$i++];
+//         $name = $response_type;
+//         $output .= '<option value="' . $typeId . '">' . $name . '</option>';
+//       }
+//       $output .= '        </select>';
+//       $output .= '     </div>';
+//       $output .= '     <div style="font-weight: bold;">Comment</div>';
+//       $output .= '       <div style="margin-left: 20px;">';
+//       $output .= '         <div class="input">';
+//       $output .= '           <textarea id="ResponseComment" rows="3" cols="50" name="data[Response][comment]"></textarea>';
+//       $output .= '         </div>';
+//       $output .= '        </div>';
+//       $output .= '      <div class="submit">';
+//       $output .= '        <input type="submit" value="RSVP" />';
+//       $output .= '      </div>';
+//       $output .= '   </form>';
+//       $output .= '  </div>';
+//       $output .= '</fieldset>';
+//     }
     return $output;
   }
   
